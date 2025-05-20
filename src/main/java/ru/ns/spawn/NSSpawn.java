@@ -1,0 +1,52 @@
+package ru.ns.spawn;
+
+import lombok.extern.slf4j.Slf4j;
+import org.allaymc.api.plugin.Plugin;
+import org.allaymc.api.registry.Registries;
+import ru.ns.spawn.command.CommandSetSpawn;
+import ru.ns.spawn.command.CommandSpawn;
+import ru.ns.spawn.utils.Config;
+
+import java.io.File;
+import java.nio.file.Path;
+
+@Slf4j
+public class NSSpawn extends Plugin {
+    private static NSSpawn instance;
+    private Config config;
+
+    @Override
+    public void onLoad() {
+        instance = this;
+        log.info("NSSpawn loaded!");
+    }
+
+    @Override
+    public void onEnable() {
+        log.info("NSSpawn enabled!");
+
+        File dataDir = new File("plugins/NSSpawn");
+        if (!dataDir.exists()) {
+            dataDir.mkdirs();
+        }
+
+        this.config = new Config(Path.of(dataDir.toString(), "config.json"));
+        this.config.load();
+
+        Registries.COMMANDS.register(new CommandSpawn());
+        Registries.COMMANDS.register(new CommandSetSpawn());
+    }
+
+    @Override
+    public void onDisable() {
+        log.info("NSSpawn disabled!");
+    }
+
+    public static NSSpawn getInstance() {
+        return instance;
+    }
+
+    public Config getConfig() {
+        return config;
+    }
+}

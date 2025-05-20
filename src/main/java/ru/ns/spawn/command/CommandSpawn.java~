@@ -1,0 +1,9 @@
+package ru.ns.spawn.command;
+
+import org.allaymc.api.command.SimpleCommand;
+
+public class CommandSpawn extends SimpleCommand {
+    public CommandSpawn() {
+        super("spawn", "Телепорт на спавн");
+    }
+}

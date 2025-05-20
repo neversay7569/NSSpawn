@@ -1,0 +1,11 @@
+package ru.ns.spawn.command;
+
+import org.allaymc.api.command.SimpleCommand;
+import org.allaymc.api.permission.DefaultPermissions;
+
+public class CommandSetSpawn extends SimpleCommand {
+    public CommandSetSpawn() {
+        super("setspawn", "Поставить точку спавна");
+        getPermissions().forEach(DefaultPermissions.OPERATOR::addPermission);
+    }
+}
