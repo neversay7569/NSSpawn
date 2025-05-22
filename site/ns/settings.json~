@@ -1,0 +1,11 @@
+{
+  "name": "NSSpawn",
+  "type": "plugin",
+  "version": "1.0",
+  "author": "NeverSay",
+  "short_description": "Плагин на спавн",
+  "full_description": "Плагин NSSpawn добавит на ваш майнкрафт сервер Allay команду /spawn и /setspawn.",
+  "download": "SRHammer-2.0-SNAPSHOT.jar",
+  "slide_speed": 5000,
+  "details": "<h3>Особенности</h3><ul><li>Много видов</li><li>Плагин активно обновляется</li></ul>"
+}
